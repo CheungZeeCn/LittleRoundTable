@@ -1,29 +1,41 @@
-# 这是啥 What is this
+# 小圆桌是什么？ What is this
+针对保险话术培训场景设计的陪练机器人的demo
 
 小圆桌对练机器人的起名灵感来源于百万圆桌会议(MDRT)，是全球寿险精英的最高盛会，通过人机对练的方式辅助处理代理人熟悉销售话术。如果有合适的剧本配合，小圆桌可以从客户约访、面访、需求激发、产品推介、异议处理...等等场景去模拟客户，训练代理人的话术能力.
 
-# 有啥特点 Highlights
+# 当前代码有什么特点 Highlights
  * DEMO级别，但结构清晰
  * 粗糙，且有潜力
  * 适当的搭配后，可以支持一定并发
  
-# DM 设计和图示
+# 创新点在哪里 What's new
+相对对常见的一问一答背诵式的机器人设计，在拟人上做了如下思考：
+ * 单句打分：培训是有目的的，从微观上看，最终用户是要流利的说出某些话术（文本）的，所以这里需要有单句级别的评分，也是对对话的内容的一种约束要求； 
+ * 多分支寻路： *好的销售核心能力不是回答，而是提问*。更稍微宏观一点看，在真实的销售环节，用户为了达到一个目标，是可以有多种对话路径。如果用图结构来表达对话，每个节点是一个意图点，那么就是一个父节点有多个子节点，只要最终对话可以推进到某个结果节点，就是完成了最终目标。这就要求DM有比较强的灵活性。另外，每一种意图的表达有多种说法（标准说法与相似说法），这对于对话内容，是一种对自由的要求；
+ * 异议弹出: 真实销售环节中，对话往往不会顺风顺水。譬如你刚要推销某样产品的时候，客户可能会说“停，你不用说了，那xxx我知道，太贵了，坑人。” 这其实就是异议弹出环节，我们针对这种情况也需要进行仿真，从而培养我们用户在真实场景下的随机应变能力。
+  
+# 核心设计  Core abstractions
+
  
-# 接下来怎弄 Todo list
+# 距离真实可用差哪些东西 Todo list
  可以做的东西还比较多
-  * 提升用户交互体验:一个友好的UI
+  * 提升用户交互体验:一个友好的UI；
   * 提升对话语义模型:有现成的语料，请考虑sbert做句子嵌入，然后再调用分类模型来打分；如果没有监督语料，可以参考最近的bert-flow做句子嵌入；
+  * 适当的训练语料语料增强，以及剧本意图节点的语料增强；
+  * 自定义的贴合你的业务场景的打分方式（如语言流畅度、关键字、语速）
 
 # 咋样安装 Install
-环境要求:
+环境要求 base os/env:
  * Linux/Mac
- * python3.7
+ * python3.7/3.6
 
-clone 或者我们的源码，安装如下依赖:
+clone 我们的源码，安装如下依赖  requirements:
  * sklearn
  * tornado
  * jieba
  * numpy
+ * bert as service 
+ * ... 
 
 
 安装第三方服务依赖 [bert as service](https://github.com/hanxiao/bert-as-service/blob/master/README.md]):
@@ -39,12 +51,12 @@ Done.
 
 # 走起！Getting Started
 
-先起 bert-as-service
+launch bert-as-service
 ``` bash
-bert-serving-start -model_dir (你的中文bert地址)models/chinese_L-12_H-768_A-12/ -num_worker=1 # num_worker 看需要增加
+bert-serving-start -model_dir (你的中文bert地址 model dir)models/chinese_L-12_H-768_A-12/ -num_worker=1 # num_worker 
 ```
 
-再起咱们的服务
+launch server
 ```bash
 $python Server.py
 2019-09-27 16:22:12,072 [INFO][kp_setup.py:52]: KP Setup Done, root_dir:[/Users/xxxx/opdir/PycharmProjects/LittleRoundTable]
@@ -69,11 +81,10 @@ body 内容：
 method 选择 post
 body 选择 raw 和 JSON(application/json)
 body 内容：
-{"sessionId":"YOUR_SESSION_ID FROM the RESPONSE of new() REQUEST", "agentAnswer":"马先生，您好，我是平安寿险的保险顾问孙悟空。是这样的，上个月，您的同事赵xx和黄xx在我们公司购买了一款保险产品，据我了解，这款保险产品挺适合您这个职业的，请问您有没有这方面的需求呢？"}
+{"sessionId":"YOUR_SESSION_ID FROM the RESPONSE of new() REQUEST", "agentAnswer":"马先生，您好，我是xxx保险的保险顾问孙悟空。是这样的，上个月，您的同事赵xx和黄xx在我们公司购买了一款保险产品，据我了解，这款保险产品挺适合您这个职业的，请问您有没有这方面的需求呢？"}
 ```
 
 # 请我吃饭 Contact Me
-如果拿去商用，我也不能把你怎么样，不过请邮件告诉我，咱们多多交流。
-
-email: paaizhangz@gmail.com
+可以免费拿去商用，不过请邮件告诉我一下，希望有机会可多多交流
+email: cheungzeecn@gmail.com
 
