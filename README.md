@@ -104,6 +104,7 @@ body 内容：
 
 # 请我吃饭 Contact Me
 可以免费拿去商用，不过请邮件告诉我一下，希望有机会可多多交流
- ![image](https://github.com/CheungZeeCn/LittleRoundTable/blob/main/images/shoukuan.png?raw=true)
 email: cheungzeecn@gmail.com
+
+![image](https://github.com/CheungZeeCn/LittleRoundTable/blob/main/images/shoukuan.jpg?raw=true)
 
