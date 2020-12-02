@@ -1,3 +1,5 @@
+ ![image](https://github.com/CheungZeeCn/LittleRoundTable/blob/main/images/UI.png?raw=true)
+
 # 小圆桌是什么？ What is this
 针对保险话术培训场景设计的陪练机器人的demo
 
@@ -19,6 +21,18 @@
     * 针对通关场景，可以严格要求用户按照提示回答随机到的指定子节点，这是最严格的一种限制，相当于在图中随机生成了一个路径，用户要严格按照路径去推进。
   
 # 核心设计  Core abstractions
+ * 剧本数据模型：
+   * 结构层次: 剧本->环节->意图->答案
+   * 剧本由环节串联组合而成，环节单入口，单出口(可给予后续基于环节为颗粒来进行剧本辅助生成的基础能力);
+   * 环节内意图多分支，分主流程和异议流程
+   * 一个意图有标准答案和相似说法
+    ![image](https://github.com/CheungZeeCn/LittleRoundTable/blob/main/images/juben.png?raw=true)
+  
+ * DM核心策略:
+
+   ![image](https://github.com/CheungZeeCn/LittleRoundTable/blob/main/images/dm1.png?raw=true)
+  
+   ![image](https://github.com/CheungZeeCn/LittleRoundTable/blob/main/images/dm2.png?raw=true)
 
  
 # 距离真实可用差哪些东西 Todo list
@@ -90,5 +104,6 @@ body 内容：
 
 # 请我吃饭 Contact Me
 可以免费拿去商用，不过请邮件告诉我一下，希望有机会可多多交流
+ ![image](https://github.com/CheungZeeCn/LittleRoundTable/blob/main/images/shoukuan.png?raw=true)
 email: cheungzeecn@gmail.com
 
