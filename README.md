@@ -31,10 +31,8 @@
  * DM核心策略:
 
    ![image](http://old.izhuomi.com/static/tmp/images/lrt/dm1.png)
-  
-  
+   
    ![image](http://old.izhuomi.com/static/tmp/images/lrt/dm2.png)
-
  
 # 距离真实可用差哪些东西 Todo list
  可以做的东西还比较多
