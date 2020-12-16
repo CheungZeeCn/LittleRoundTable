@@ -1,4 +1,4 @@
- ![image](https://github.com/CheungZeeCn/LittleRoundTable/blob/main/images/UI.png?raw=true)
+ ![image](http://old.izhuomi.com/static/tmp/images/lrt/UI.png)
 
 # 小圆桌是什么？ What is this
 针对保险话术培训场景设计的陪练机器人的demo
@@ -26,13 +26,14 @@
    * 剧本由环节串联组合而成，环节单入口，单出口(可给予后续基于环节为颗粒来进行剧本辅助生成的基础能力);
    * 环节内意图多分支，分主流程和异议流程
    * 一个意图有标准答案和相似说法
-    ![image](https://github.com/CheungZeeCn/LittleRoundTable/blob/main/images/juben.png?raw=true)
+    ![image](http://old.izhuomi.com/static/tmp/images/lrt/juben.png)
   
  * DM核心策略:
 
-   ![image](https://github.com/CheungZeeCn/LittleRoundTable/blob/main/images/dm1.png?raw=true)
+   ![image](http://old.izhuomi.com/static/tmp/images/lrt/dm1.png)
   
-   ![image](https://github.com/CheungZeeCn/LittleRoundTable/blob/main/images/dm2.png?raw=true)
+  
+   ![image](http://old.izhuomi.com/static/tmp/images/lrt/dm2.png)
 
  
 # 距离真实可用差哪些东西 Todo list
