@@ -1,4 +1,6 @@
+ 
  ![image](http://old.izhuomi.com/static/tmp/images/lrt/UI.png)
+ 
 
 # 小圆桌是什么？ What is this
 针对保险话术培训场景设计的陪练机器人的demo
